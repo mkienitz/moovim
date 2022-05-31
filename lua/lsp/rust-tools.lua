@@ -1,42 +1,5 @@
 local on_attach = require('cfg.keymap').lsp_on_attach
 
-local servers = { 'pyright', 'clangd' }
-for _, lsp in pairs(servers) do
-    require('lspconfig')[lsp].setup {
-        on_attach = on_attach,
-        flags = {
-            -- This will be the default in neovim 0.7+
-            debounce_text_changes = 150,
-        }
-    }
-end
-
-require('rust-tools').setup({})
-
-require('lspconfig').sumneko_lua.setup {
-    on_attach = on_attach,
-    settings = {
-        Lua = {
-            runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                version = 'LuaJIT',
-            },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { 'vim' },
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-            },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
-}
-
 require('rust-tools').setup({
     tools = { -- rust-tools options
         -- automatically set inlay hints (type hints)

@@ -1,7 +1,7 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
 end
 
 return require('packer').startup(function(use)
@@ -14,6 +14,7 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp'
     use 'nvim-treesitter/nvim-treesitter'
     use 'windwp/nvim-autopairs'
+    use 'tpope/vim-fugitive'
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {
@@ -26,6 +27,10 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-lua/plenary.nvim',
         }
+    }
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make'
     }
 
     -- Automatically set up your configuration after cloning packer.nvim

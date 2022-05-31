@@ -10,7 +10,9 @@ vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.smarttab = true
-vim.opt.encoding = "utf-8"
+vim.opt.encoding = 'utf-8'
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.clipboard = 'unnamedplus'
+
 vim.cmd('colorscheme gruvbox')

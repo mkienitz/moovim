@@ -1,3 +1,3 @@
-require('lsp.servers')
-require('lsp.cmp')
-require('lsp.treesitter')
+require('lsp.others')
+require('lsp.rust-tools')
+require('lsp.sumneko-lua')
