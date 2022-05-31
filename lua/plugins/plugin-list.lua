@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
     use 'nvim-treesitter/nvim-treesitter'
     use 'windwp/nvim-autopairs'
     use 'tpope/vim-fugitive'
+    use 'numToStr/Comment.nvim'
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {
