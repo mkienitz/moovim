@@ -1,7 +1,7 @@
 local on_attach = require('cfg.keymap').lsp_on_attach
 
 
-local servers = { 'pyright', 'clangd' }
+local servers = { 'pyright', 'ccls' }
 for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup {
         on_attach = on_attach,
