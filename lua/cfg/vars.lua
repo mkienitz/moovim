@@ -1,18 +1,21 @@
-vim.opt.compatible = false
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.ignorecase = true
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.termguicolors = true
-vim.opt.cursorline = true
-vim.opt.title = true
-vim.opt.autoindent = true
-vim.opt.expandtab = true
-vim.opt.smarttab = true
-vim.opt.encoding = 'utf-8'
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.clipboard = 'unnamedplus'
+-- Global options
+vim.go.compatible = false
+vim.go.ignorecase = true
+vim.go.termguicolors = true
+vim.go.smarttab = true
+vim.go.encoding = 'utf-8'
+vim.go.clipboard = 'unnamedplus'
+vim.go.title = true
 
+-- Windows options
+vim.wo.number = true
+vim.wo.relativenumber = true
+vim.wo.cursorline = true
+
+-- Buffer options
+vim.bo.autoindent = true
+vim.bo.smartindent = true
+vim.bo.expandtab = true
+vim.bo.shiftwidth = 4
+vim.bo.tabstop = 4
 vim.cmd('colorscheme gruvbox')
