@@ -13,7 +13,7 @@ vim.api.nvim_set_keymap('n', '<space>fg', "<cmd>lua require('telescope.builtin')
 vim.api.nvim_set_keymap('n', '<space>ft', "<cmd>lua require('telescope.builtin').treesitter()<CR>", opts)
 
 -- Nvim Tree
-vim.api.nvim_set_keymap('n', '<C-b>', "<cmd>lua require('nvim-tree').toggle()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<space>nt', "<cmd>lua require('nvim-tree').toggle()<CR>", opts)
 
 -- LSP bindings
 function M.lsp_on_attach(client, bufnr)
