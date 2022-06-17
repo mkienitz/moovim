@@ -6,6 +6,7 @@ vim.go.smarttab = true
 vim.go.encoding = 'utf-8'
 vim.go.clipboard = 'unnamedplus'
 vim.go.title = true
+vim.go.updatetime = 250
 
 -- Windows options
 vim.wo.number = true
