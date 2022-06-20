@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'L3MON4D3/luasnip'
     use 'saadparwaiz1/cmp_luasnip'
+    use 'folke/which-key.nvim'
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {

@@ -1,4 +1,4 @@
-local on_attach = require('cfg.keymap').lsp_on_attach
+local add_keymap = require('keymap').lsp_on_attach
 
 require('rust-tools').setup({
     tools = { -- rust-tools options
@@ -169,7 +169,7 @@ require('rust-tools').setup({
     -- these override the defaults set by rust-tools.nvim
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
     server = {
-        on_attach = on_attach,
+        on_attach = add_keymap,
         -- standalone file support
         -- setting it to false may improve startup time
         standalone = true,

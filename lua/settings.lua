@@ -7,6 +7,7 @@ vim.go.encoding = 'utf-8'
 vim.go.clipboard = 'unnamedplus'
 vim.go.title = true
 vim.go.updatetime = 250
+vim.g.mapleader = ' '
 
 -- Windows options
 vim.wo.number = true

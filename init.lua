@@ -1,3 +1,4 @@
+require('settings')
+require('keymap')
 require('plugins')
-require('cfg')
 require('lsp')
