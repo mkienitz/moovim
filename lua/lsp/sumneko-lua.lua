@@ -1,7 +1,7 @@
-local add_keymap = require('keymap').lsp_on_attach
+local set_lsp_keymap = require('lsp.common').set_lsp_keymap
 
 require('lspconfig').sumneko_lua.setup {
-    on_attach = add_keymap,
+    on_attach = set_lsp_keymap,
     settings = {
         Lua = {
             runtime = {

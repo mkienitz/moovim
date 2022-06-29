@@ -10,7 +10,7 @@ wk.register({
             name = 'nvim-tree',
             t = { '<cmd>NvimTreeToggle<cr>', 'Toggle NvimTree' },
         },
-        t = {
+        f = {
             name = 'telescope',
             f = { '<cmd>Telescope find_files<cr>', 'Find files' },
             g = { '<cmd>Telescope git_files<cr>', 'Git files' },
@@ -23,12 +23,14 @@ wk.register({
             [']'] = { '<cmd>lua vim.diagnostic.goto_next()<cr>', 'next' },
             q = { '<cmd>lua vim.diagnostic.setloclist()<cr>', 'location list' },
         },
-        h = { "<cmd>lua require'hop'.hint_char2()<cr>", 'hop' },
+        s = { "<cmd>lua require'hop'.hint_char2()<cr>", 'hop' },
+        -- S = { "<cmd>lua require'hop'.hint_char2({ hint_position = require'hop.hint'.HintPosition.END })<cr>", 'hop after' },
+        S = { "<cmd>lua require'hop'.hint_char2({ hint_offset = 2 })<cr>", 'hop after' },
     },
 })
 
 -- Export LSP bindings
-function M.lsp_on_attach(_, bufnr)
+function M.set_lsp_keymap(_, bufnr)
     wk.register({
         l = {
             name = 'lsp',

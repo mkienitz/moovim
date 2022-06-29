@@ -1,4 +1,4 @@
-local add_keymap = require('keymap').lsp_on_attach
+local add_keymap = require('keymap').set_lsp_keymap
 
 require('rust-tools').setup({
     tools = { -- rust-tools options
