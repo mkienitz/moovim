@@ -23,9 +23,9 @@ wk.register({
             [']'] = { '<cmd>lua vim.diagnostic.goto_next()<cr>', 'next' },
             q = { '<cmd>lua vim.diagnostic.setloclist()<cr>', 'location list' },
         },
-        s = { "<cmd>lua require'hop'.hint_char2()<cr>", 'hop' },
-        -- S = { "<cmd>lua require'hop'.hint_char2({ hint_position = require'hop.hint'.HintPosition.END })<cr>", 'hop after' },
-        S = { "<cmd>lua require'hop'.hint_char2({ hint_offset = 2 })<cr>", 'hop after' },
+        s = { '<Plug>(leap-forward-to)', 'leap-forward-to' },
+        S = { '<Plug>(leap-backward-to)', 'leap-backward-to' },
+        ['gs'] = { '<Plug>(leap-cross-window)', 'leap-cross-window' },
     },
 })
 
@@ -41,7 +41,7 @@ function M.set_lsp_keymap(_, bufnr)
                 l = { '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>', 'List workspace folders' },
             },
             k = { '<cmd>lua vim.lsp.buf.hover()<cr>', 'Hover' },
-            f = { '<cmd>lua vim.lsp.buf.formatting()<cr>', 'Format buffer' },
+            f = { '<cmd>lua vim.lsp.buf.format({ async = true })<cr>', 'Format buffer' },
             r = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename symbol' },
             g = {
                 name = 'goto',

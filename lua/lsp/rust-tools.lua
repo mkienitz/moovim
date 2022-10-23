@@ -1,4 +1,5 @@
-local add_keymap = require('keymap').set_lsp_keymap
+-- local add_keymap = require('keymap').set_lsp_keymap
+local add_keymap = require('lsp.common').set_lsp_keymap
 
 require('rust-tools').setup({
     tools = { -- rust-tools options
@@ -8,11 +9,6 @@ require('rust-tools').setup({
         -- the hints or just run :RustSetInlayHints.
         -- default: true
         autoSetHints = true,
-
-        -- whether to show hover actions inside the hover window
-        -- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this
-        -- default: true
-        hover_with_actions = true,
 
         -- how to execute terminal commands
         -- options right now: termopen / quickfix
@@ -26,7 +22,7 @@ require('rust-tools').setup({
         inlay_hints = {
 
             -- Only show inlay hints for the current line
-            only_current_line = true,
+            only_current_line = false,
 
             -- Event which triggers a refersh of the inlay hints.
             -- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but

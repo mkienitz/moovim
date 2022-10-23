@@ -21,8 +21,7 @@ return require('packer').startup(function(use)
     use 'L3MON4D3/luasnip'
     use 'saadparwaiz1/cmp_luasnip'
     use 'folke/which-key.nvim'
-    use 'goldfeld/vim-seek'
-    use 'phaazon/hop.nvim'
+    use 'ggandor/leap.nvim'
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {
