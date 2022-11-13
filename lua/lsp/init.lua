@@ -1,3 +1,4 @@
+require('lsp.mason')
 require('lsp.common')
 require('lsp.pyright')
 require('lsp.rust-tools')

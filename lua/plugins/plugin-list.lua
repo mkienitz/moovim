@@ -7,6 +7,8 @@ end
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
     use 'ellisonleao/gruvbox.nvim'
     use 'tpope/vim-surround'
     use 'neovim/nvim-lspconfig'
