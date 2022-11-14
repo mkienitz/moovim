@@ -7,6 +7,8 @@ end
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    use 'nvim-lua/plenary.nvim'
+    use 'jose-elias-alvarez/null-ls.nvim'
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
     use 'ellisonleao/gruvbox.nvim'
@@ -25,19 +27,9 @@ return require('packer').startup(function(use)
     use 'folke/which-key.nvim'
     use 'ggandor/leap.nvim'
     use 'ThePrimeagen/vim-be-good'
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = {
-            'kyazdani42/nvim-web-devicons',
-        },
-        tag = 'nightly'
-    }
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim',
-        }
-    }
+    use 'kyazdani42/nvim-web-devicons'
+    use 'kyazdani42/nvim-tree.lua'
+    use 'nvim-telescope/telescope.nvim'
     use {
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make'
