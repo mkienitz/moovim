@@ -14,13 +14,13 @@ wk.register({
 			g = { "<cmd>Telescope git_files<cr>", "Git files" },
 			t = { "<cmd>Telescope treesitter<cr>", "Treesitter" },
 		},
-		d = {
-			name = "diagnostics",
-			o = { "<cmd>lua vim.diagnostic.open_float()<cr>", "open diagnostics" },
-			["["] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "previous" },
-			["]"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "next" },
-			q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "location list" },
-		},
+		-- d = {
+		-- 	name = "diagnostics",
+		-- 	o = { "<cmd>lua vim.diagnostic.open_float()<cr>", "open diagnostics" },
+		-- 	["["] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "previous" },
+		-- 	["]"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "next" },
+		-- 	q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "location list" },
+		-- },
 		l = {
 			name = "lsp",
 			w = {
