@@ -1,12 +1,2 @@
-require('lsp.common')
 require('lsp.mason')
 require('lsp.null-ls')
--- require('lsp.pyright')
--- require('lsp.rust-tools')
--- require('lsp.sumneko-lua')
--- require('lsp.haskell')
--- require('lsp.java')
--- require('lsp.astro')
--- require('lsp.tsserver')
--- require('lsp.tailwind')
---
