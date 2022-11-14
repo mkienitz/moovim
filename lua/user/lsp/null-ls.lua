@@ -12,6 +12,7 @@ local sources = {
 	formatting.autopep8,
 	formatting.clang_format,
 	formatting.stylish_haskell,
+	completion.luasnip,
 	code_actions.gitsigns,
 }
 
