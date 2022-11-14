@@ -3,11 +3,11 @@ vim.go.compatible = false
 vim.go.ignorecase = true
 vim.go.termguicolors = true
 vim.go.smarttab = true
-vim.go.encoding = 'utf-8'
-vim.go.clipboard = 'unnamedplus'
+vim.go.encoding = "utf-8"
+vim.go.clipboard = "unnamedplus"
 vim.go.title = true
 vim.go.updatetime = 250
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 -- Windows options
 vim.wo.number = true
@@ -20,4 +20,4 @@ vim.bo.smartindent = true
 vim.bo.expandtab = true
 vim.bo.shiftwidth = 4
 vim.bo.tabstop = 4
-vim.cmd('colorscheme gruvbox')
+vim.cmd("colorscheme gruvbox")

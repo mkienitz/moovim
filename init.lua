@@ -1,4 +1,3 @@
-require('plugins')
-require('options')
-require('keymap')
-require('lsp')
+require("user.plugins")
+require("user.options")
+require("user.lsp")

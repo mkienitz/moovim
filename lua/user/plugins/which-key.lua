@@ -1,5 +1,3 @@
-local M = {}
-
 local wk = require("which-key")
 
 wk.setup({})
@@ -53,8 +51,3 @@ wk.register({
 	S = { "<Plug>(leap-backward-to)", "leap-backward-to" },
 	["gs"] = { "<Plug>(leap-cross-window)", "leap-cross-window" },
 })
-
--- Export LSP bindings
-function M.set_lsp_keymap(_, bufnr) end
-
-return M
