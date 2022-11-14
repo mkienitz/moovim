@@ -1,4 +1,4 @@
-require'leap'.setup {
+require("leap").setup({
 	case_sensitive = true,
-    -- safe_labels = {},
-}
+	-- safe_labels = {},
+})
