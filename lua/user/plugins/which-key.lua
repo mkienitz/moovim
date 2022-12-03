@@ -1,7 +1,19 @@
 local wk = require("which-key")
 
-wk.setup({})
+local function map(mode, lhs, rhs, opts)
+	local options = { noremap = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
 
+-- General
+map("n", "<C-u>", "<C-u>zz", { silent = true })
+map("n", "<C-d>", "<C-d>zz", { silent = true })
+
+-- Whichkey
+wk.setup({})
 wk.register({
 	["<leader>"] = {
 		n = {
