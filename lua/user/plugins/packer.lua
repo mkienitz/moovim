@@ -31,7 +31,6 @@ return require("packer").startup(function(use)
 	-- Other
 	use("lewis6991/gitsigns.nvim")
 	use("folke/which-key.nvim")
-	use("ThePrimeagen/vim-be-good")
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
 	use("nvim-telescope/telescope.nvim")
