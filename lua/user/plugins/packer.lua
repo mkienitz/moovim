@@ -22,7 +22,7 @@ return require("packer").startup(function(use)
 	use("L3MON4D3/luasnip")
 	use("saadparwaiz1/cmp_luasnip")
 	use("nvim-treesitter/nvim-treesitter")
-	use("folke/trouble.nvim")
+	-- use("folke/trouble.nvim")
 	-- Editing
 	use("tpope/vim-surround")
 	use("windwp/nvim-autopairs")
