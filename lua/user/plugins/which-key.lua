@@ -1,20 +1,22 @@
 local wk = require("which-key")
 
-local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local telescope = require("telescope.builtin")
 
--- General
-map("n", "<C-u>", "<C-u>zz", { silent = true })
-map("n", "<C-d>", "<C-d>zz", { silent = true })
+-- local telescope = require("telescope")
 
--- Whichkey
+-- local function map(mode, lhs, rhs, opts)
+-- 	local options = { noremap = true }
+-- 	if opts then
+-- 		options = vim.tbl_extend("force", options, opts)
+-- 	end
+-- 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+-- end
+--
+
 wk.setup({})
 wk.register({
+	["<C-u>"] = { "<C-u>zz", "Scroll up" },
+	["<C-d>"] = { "<C-d>zz", "Scoll down" },
 	["<leader>"] = {
 		n = {
 			name = "nvim-tree",
@@ -22,51 +24,44 @@ wk.register({
 		},
 		f = {
 			name = "telescope",
-			f = { "<cmd>Telescope find_files<cr>", "Find files" },
-			g = { "<cmd>Telescope git_files<cr>", "Git files" },
-			t = { "<cmd>Telescope treesitter<cr>", "Treesitter" },
+			f = { telescope.find_files, "Find files" },
+			g = { telescope.git_files, "Git files" },
+			t = { telescope.treesitter, "Treesitter" },
 		},
 		d = {
 			name = "diagnostics",
-			o = { "<cmd>lua vim.diagnostic.open_float()<cr>", "open diagnostics" },
-			["["] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "previous" },
-			["]"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "next" },
-			q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "location list" },
+			o = { vim.diagnostic.open_float, "open diagnostics" },
+			["["] = { vim.diagnostic.goto_prev, "previous" },
+			["]"] = { vim.diagnostic.goto_next, "next" },
+			q = { vim.diagnostic.setloclist, "location list" },
 		},
 		l = {
 			name = "lsp",
 			w = {
 				name = "workspace",
-				a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", "Add workspace folder" },
-				r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove workspace folder" },
+				a = { vim.lsp.buf.add_workspace_folder, "Add workspace folder" },
+				r = { vim.lsp.buf.remove_workspace_folder, "Remove workspace folder" },
 				l = {
-					"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>",
+					function()
+						print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+					end,
 					"List workspace folders",
 				},
 			},
-			k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
-			f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format buffer" },
-			r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
+			k = { vim.lsp.buf.hover, "Hover" },
+			f = { vim.lsp.buf.format, "Format buffer" },
+			r = { vim.lsp.buf.rename, "Rename symbol" },
 			g = {
 				name = "goto",
-				D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto declatation" },
-				d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition" },
-				t = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Goto type definition" },
-				i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto implementation" },
-				r = { "<cmd>lua vim.lsp.buf.references()<cr>", "Goto references" },
+				D = { vim.lsp.buf.declaration, "Goto declatation" },
+				d = { vim.lsp.buf.definition, "Goto definition" },
+				t = { vim.lsp.buf.type_definition, "Goto type definition" },
+				i = { vim.lsp.buf.implementation, "Goto implementation" },
+				r = { vim.lsp.buf.references, "Goto references" },
 			},
-			a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Show code actions" },
-			h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Show signature help" },
+			a = { vim.lsp.buf.code_action, "Show code actions" },
+			h = { vim.lsp.buf.signature_help, "Show signature help" },
 		},
-		-- x = {
-		-- 	name = "trouble",
-		-- 	x = { "<cmd>TroubleToggle<cr>", "toggle" },
-		-- 	w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
-		-- 	d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
-		-- 	q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
-		-- 	l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
-		-- 	r = { "<cmd>TroubleToggle lsp_references<cr>", "lsp references" },
-		-- },
 	},
 	s = { "<Plug>(leap-forward-to)", "leap-forward-to" },
 	S = { "<Plug>(leap-backward-to)", "leap-backward-to" },
