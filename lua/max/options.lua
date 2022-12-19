@@ -1,23 +1,30 @@
--- Global options
-vim.go.compatible = false
-vim.go.ignorecase = true
-vim.go.termguicolors = true
-vim.go.smarttab = true
-vim.go.encoding = "utf-8"
-vim.go.clipboard = "unnamedplus"
-vim.go.title = true
-vim.go.updatetime = 250
-vim.g.mapleader = " "
+vim.opt.compatible = false
+vim.opt.ignorecase = true
+vim.opt.termguicolors = true
+vim.opt.smarttab = true
+vim.opt.encoding = "utf-8"
+vim.opt.clipboard = "unnamedplus"
+vim.opt.title = true
+vim.opt.updatetime = 50
 
--- Windows options
-vim.wo.number = true
-vim.wo.relativenumber = true
-vim.wo.cursorline = true
+vim.opt.incsearch = true
+vim.opt.hlsearch = false
 
--- Buffer options
-vim.bo.autoindent = true
-vim.bo.smartindent = true
-vim.bo.expandtab = true
-vim.bo.shiftwidth = 4
-vim.bo.tabstop = 4
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.guicursor = ""
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "120"
+
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
+vim.opt.autoindent = true
+vim.opt.wrap = false
+vim.opt.smartindent = true
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
 vim.cmd("colorscheme gruvbox")
