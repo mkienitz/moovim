@@ -1,3 +1,3 @@
-require("user.plugins")
-require("user.options")
-require("user.lsp")
+require("max.packer")
+require("max.options")
+require("max.keymap")
