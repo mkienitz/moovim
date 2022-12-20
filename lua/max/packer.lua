@@ -40,6 +40,7 @@ return require("packer").startup(function(use)
 			{ "rafamadriz/friendly-snippets" },
 		},
 	})
+	use("j-hui/fidget.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("nvim-treesitter/nvim-treesitter")
 	use("lewis6991/gitsigns.nvim")
@@ -49,6 +50,7 @@ return require("packer").startup(function(use)
 	use("ggandor/leap.nvim")
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
+	use("kdheepak/lazygit.nvim")
 	-- Jumping
 	use("theprimeagen/harpoon")
 	use("nvim-telescope/telescope.nvim")
