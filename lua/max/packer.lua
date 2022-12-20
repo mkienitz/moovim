@@ -15,6 +15,10 @@ return require("packer").startup(function(use)
             italic = false,
         }),
     })
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
     -- LSP Stuff
     use({
         "VonHeikemen/lsp-zero.nvim",
@@ -37,7 +41,9 @@ return require("packer").startup(function(use)
         },
     })
     use("nvim-treesitter/nvim-treesitter")
-    use('lewis6991/gitsigns.nvim')
+    use("lewis6991/gitsigns.nvim")
+    use("mbbill/undotree")
+
     -- Editing
     use("tpope/vim-surround")
     use("ggandor/leap.nvim")
