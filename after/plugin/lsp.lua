@@ -40,12 +40,30 @@ lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
 })
 
+-- Custom formatter function to make sure null-ls is responsible
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+	})
+end
+
+-- Format-on-write callback
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
-
-	if client.name == "eslint" then
-		vim.cmd.LspStop("eslint")
-		return
+	-- Format-on-write
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				lsp_formatting(bufnr)
+			end,
+		})
 	end
 
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -61,7 +79,7 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
 	vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
 
-	vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
+	vim.keymap.set("n", "<leader>f", lsp_formatting, opts)
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 	-- vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
