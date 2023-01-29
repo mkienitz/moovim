@@ -58,7 +58,6 @@ return require("packer").startup(function(use)
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "make",
 	})
-
 	-- Automatically set up your configuration after cloning packer.nvim
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
