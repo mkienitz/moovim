@@ -12,7 +12,7 @@ return require("packer").startup(function(use)
 	use({
 		"ellisonleao/gruvbox.nvim",
 		require("gruvbox").setup({
-			italic = false,
+			italic = {},
 		}),
 	})
 	use({
