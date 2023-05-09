@@ -1,5 +1,4 @@
 return {
 	"windwp/nvim-autopairs",
-    opts = {},
+	opts = {},
 }
-
