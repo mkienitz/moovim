@@ -5,6 +5,14 @@ return {
 		{ "neovim/nvim-lspconfig" },
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
+		-- Copilot
+		{
+			"zbirenbaum/copilot.lua",
+			opts = {
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			},
+		},
 		-- Autocompletion
 		{ "hrsh7th/nvim-cmp" },
 		{ "hrsh7th/cmp-buffer" },
@@ -13,6 +21,7 @@ return {
 		{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 		{ "hrsh7th/cmp-nvim-lua" },
 		{ "saadparwaiz1/cmp_luasnip" },
+		{ "zbirenbaum/copilot-cmp", opts = {} },
 		-- Snippets
 		{ "L3MON4D3/LuaSnip" },
 		{ "rafamadriz/friendly-snippets" },
@@ -26,6 +35,7 @@ return {
 	config = function(_, opts)
 		local lsp = require("lsp-zero").preset({})
 		require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+		-- Hello, World
 		local cmp = require("cmp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 		local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -39,6 +49,13 @@ return {
 			["<S-Tab>"] = nil,
 		})
 		lsp.setup_nvim_cmp({
+			sources = {
+				{ name = "copilot", group_index = 2 },
+				{ name = "nvim_lsp", group_index = 2 },
+				{ name = "buffer", group_index = 2 },
+				{ name = "path", group_index = 2 },
+				{ name = "luasnip", group_index = 2 },
+			},
 			mapping = cmp_mappings,
 		})
 		lsp.on_attach(function(_, bufnr)
