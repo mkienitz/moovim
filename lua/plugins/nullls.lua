@@ -15,6 +15,8 @@ return {
 				formatting.clang_format,
 				formatting.stylish_haskell,
 				formatting.rustfmt,
+                formatting.prismaFmt,
+                formatting.ocamlformat,
 				code_actions.gitsigns,
 			},
 		}
