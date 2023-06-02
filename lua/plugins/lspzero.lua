@@ -35,6 +35,18 @@ return {
 	config = function(_, opts)
 		local lsp = require("lsp-zero").preset({})
 		require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+        -- Setup Ocaml manually until Mason fixes their version
+		require("lspconfig").ocamllsp.setup({})
+        -- Enable feature propagation for rust analyzer
+		require("lspconfig").rust_analyzer.setup({
+			settings = {
+				["rust-analyzer"] = {
+					cargo = {
+						features = "all",
+					},
+				},
+			},
+		})
 		-- Hello, World
 		local cmp = require("cmp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
