@@ -9,8 +9,8 @@ return {
 		{
 			"zbirenbaum/copilot.lua",
 			opts = {
-				suggestion = { enabled = false },
-				panel = { enabled = false },
+				suggestion = { enabled = true, auto_trigger = true },
+				-- panel = { enabled = false },
 			},
 		},
 		-- Autocompletion
@@ -21,7 +21,7 @@ return {
 		{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 		{ "hrsh7th/cmp-nvim-lua" },
 		{ "saadparwaiz1/cmp_luasnip" },
-		{ "zbirenbaum/copilot-cmp", opts = {} },
+		-- { "zbirenbaum/copilot-cmp", opts = {} },
 		-- Snippets
 		{ "L3MON4D3/LuaSnip" },
 		{ "rafamadriz/friendly-snippets" },
@@ -35,9 +35,9 @@ return {
 	config = function(_, opts)
 		local lsp = require("lsp-zero").preset({})
 		require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
-        -- Setup Ocaml manually until Mason fixes their version
+		-- Setup Ocaml manually until Mason fixes their version
 		require("lspconfig").ocamllsp.setup({})
-        -- Enable feature propagation for rust analyzer
+		-- Enable feature propagation for rust analyzer
 		require("lspconfig").rust_analyzer.setup({
 			settings = {
 				["rust-analyzer"] = {
@@ -55,15 +55,15 @@ return {
 			["<C-f>"] = cmp.mapping.scroll_docs(4),
 			["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
 			["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
-			["<C-cr>"] = cmp.mapping.confirm({ select = true }),
+			["<CR>"] = cmp.mapping.confirm({ select = true }),
 			["<C-Space>"] = cmp.mapping.complete(),
 			["<Tab>"] = nil,
 			["<S-Tab>"] = nil,
 		})
 		lsp.setup_nvim_cmp({
 			sources = {
-				{ name = "copilot", group_index = 2 },
-				{ name = "nvim_lsp", group_index = 2 },
+				-- { name = "copilot", group_index = 2 },
+				{ name = "nvim_lsp", group_index = 1 },
 				{ name = "buffer", group_index = 2 },
 				{ name = "path", group_index = 2 },
 				{ name = "luasnip", group_index = 2 },
