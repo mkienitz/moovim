@@ -15,6 +15,13 @@ return {
 			desc = "Local files",
 		},
 		{
+			"<leader>ts",
+			function()
+				require("telescope.builtin").grep_string()
+			end,
+			desc = "Grep string",
+		},
+		{
 			"<leader>tg",
 			function()
 				require("telescope.builtin").git_files()
