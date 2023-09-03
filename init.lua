@@ -11,6 +11,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("max.keymap")
-require("lazy").setup("plugins")
-require("max.options")
+require("max.core")
+require("lazy").setup("max.plugins")

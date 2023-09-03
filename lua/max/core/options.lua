@@ -27,7 +27,6 @@ vim.opt.smartindent = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.cmd("colorscheme gruvbox")
 vim.cmd("syntax off")
 
 vim.o.timeout = true
