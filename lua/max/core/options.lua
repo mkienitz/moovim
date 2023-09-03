@@ -30,3 +30,7 @@ vim.cmd("syntax off")
 
 vim.o.timeout = true
 vim.o.timeoutlen = 300
+
+-- nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
