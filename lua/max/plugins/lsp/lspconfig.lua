@@ -1,15 +1,14 @@
 return {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        "nvim-telescope/telescope.nvim",
+        { "williamboman/mason.nvim", },
+        { "williamboman/mason-lspconfig.nvim", },
         { "hrsh7th/cmp-nvim-lsp" },
     },
     config = function()
-        local lspconfig = require("lspconfig")
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
+        -- Prepare keybinds on attach
         local wk = require("which-key")
-        local telescope = require("telescope.builtin")
-
         local on_attach = function(_, bufnr)
             wk.register({
                 ["<leader>"] = {
@@ -28,35 +27,52 @@ return {
                     rn = { vim.lsp.buf.rename, "Rename symbol", buffer = bufnr },
                     vws = { vim.lsp.buf.workspace_symbol, "Find symbol in workspace", buffer = bufnr },
                     d = { vim.diagnostic.open_float, "Show diagnostics for line", buffer = bufnr },
-                    D = { telescope.diagnostics, "Show diagnostics for buffer", buffer = bufnr },
+                    D = { require("telescope.builtin").diagnostics, "Show diagnostics for buffer", buffer = bufnr },
                     F = { vim.lsp.buf.format, "Format buffer", buffer = bufnr },
                 }
             })
         end
-
-        local capabilities = cmp_nvim_lsp.default_capabilities()
-
-        lspconfig.lua_ls.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        globals = { "vim" },
+        -- Prepare capabilities and handlers
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        local lspconfig = require("lspconfig")
+        local handlers = {
+            -- Default handler
+            function(server_name) -- default handler (optional)
+                lspconfig[server_name].setup({
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                })
+            end,
+            -- Dedicated handlers
+            ["lua_ls"] = function()
+                lspconfig.lua_ls.setup({
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                    settings = {
+                        Lua = {
+                            diagnostics = {
+                                globals = { "vim" },
+                            },
+                            workspace = {
+                                library = {
+                                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                                    [vim.fn.stdpath("config") .. "/lua"] = true,
+                                }
+                            },
+                        },
                     },
-                    workspace = {
-                        library = {
-                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                            [vim.fn.stdpath("config") .. "/lua"] = true,
-                        }
-                    },
-                },
+                })
+            end,
+        }
+        -- Setup - Mason must start first
+        require("mason").setup()
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                "lua_ls",
+                "nil_ls",
             },
-        })
-
-        lspconfig.nil_ls.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+            automatic_installation = true,
+            handlers = handlers,
         })
     end,
 }
