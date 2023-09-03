@@ -2,7 +2,7 @@ return {
   "rmagatti/auto-session",
   opts = {
     auto_restore_enabled = false,
-    auto_session_suppress_dirs = { "~/", "~/Downloads", "~/Documents", "~/Deskeop/" },
+    auto_session_suppress_dirs = { "~/", "~/Downloads", "~/Documents", "~/Desktop/" },
   },
   config = function(_, opts)
     require("auto-session").setup(opts)
