@@ -22,6 +22,7 @@ return {
   end,
   config = function(_, opts)
     require("telescope").setup(opts)
+    require("telescope").load_extension("session-lens")
     local tsb = require("telescope.builtin")
     local wk = require("which-key")
     wk.register({
