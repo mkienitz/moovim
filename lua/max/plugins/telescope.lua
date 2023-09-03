@@ -29,7 +29,7 @@ return {
         name = "Find",
         f = { function() tsb.find_files() end, "Local files", },
         g = { function() tsb.git_files() end, "Git files", },
-        o = { function() tsb.oldfiles() end, "Old files", },
+        r = { function() tsb.oldfiles() end, "Old files", },
         c = { function() tsb.grep_string() end, "String under cursor", },
         s = { function() tsb.live_grep() end, "String in current working directory", },
         t = { function() tsb.treesitter() end, "Treesitter symbols", },
