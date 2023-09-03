@@ -3,7 +3,7 @@ return {
   config = function()
     local wk = require("which-key")
     wk.register({
-      ["<leader>w"] = {
+      ["<C-w>"] = {
         name = "Window",
         m = { "<cmd>MaximizerToggle<CR>", "Toggle maximize split" }
       }
