@@ -1,7 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-	    "nvim-telescope/telescope.nvim",
+        "nvim-telescope/telescope.nvim",
         { "hrsh7th/cmp-nvim-lsp" },
     },
     config = function()
@@ -49,7 +49,7 @@ return {
             keymap.set("n", "]d", vim.diagnostic.goto_prev, km_opts)
 
             km_opts.desc = "Format buffer"
-            keymap.set("n", "<leader>f", vim.lsp.buf.format, km_opts)
+            keymap.set("n", "<leader>F", vim.lsp.buf.format, km_opts)
 
             km_opts.desc = "Show code actions"
             keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, km_opts)
