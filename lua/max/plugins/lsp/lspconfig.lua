@@ -1,6 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
+	    "nvim-telescope/telescope.nvim",
         { "hrsh7th/cmp-nvim-lsp" },
     },
     config = function()
@@ -9,6 +10,8 @@ return {
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
         local keymap = vim.keymap
+
+        local telescope = require("telescope.builtin")
 
         local on_attach = function(_, bufnr)
             local km_opts = { remap = false, silent = true, buffer = bufnr }
@@ -34,10 +37,10 @@ return {
             keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, km_opts)
 
             km_opts.desc = "Show diagnostics for line"
-            keymap.set("n", "<leader>e", vim.diagnostic.open_float, km_opts)
+            keymap.set("n", "<leader>d", vim.diagnostic.open_float, km_opts)
 
             km_opts.desc = "Show diagnostics for buffer"
-            keymap.set("n", "<leader>q", vim.diagnostic.setloclist, km_opts)
+            keymap.set("n", "<leader>D", telescope.diagnostics, km_opts)
 
             km_opts.desc = "Jump to next diagnostic"
             keymap.set("n", "[d", vim.diagnostic.goto_next, km_opts)
