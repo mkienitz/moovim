@@ -1,48 +1,21 @@
-local gen_keys = function()
-    local res = {
-        {
-            "<leader>ha",
-            function()
-                require("harpoon.mark").add_file()
-            end,
-            desc = "Harpoon add mark",
-        },
-        {
-            "<leader>hm",
-            function()
-                require("harpoon.ui").toggle_quick_menu()
-            end,
-            desc = "Harpoon show menu",
-        },
-        {
-            "<leader>hp",
-            function()
-                require("harpoon.ui").nav_previous()
-            end,
-            desc = "Harpoon previous",
-        },
-        {
-            "<leader>hn",
-            function()
-                require("harpoon.ui").nav_next()
-            end,
-            desc = "Harpoon next",
-        },
-    }
-    for i = 0, 9 do
-        table.insert(res, {
-            "<leader>h" .. i,
-            function()
-                require("harpoon.ui").nav_file(i)
-            end,
-            desc = "Jump to file " .. i,
-        })
-    end
-    return res
-end
-
 return {
     "theprimeagen/harpoon",
-    keys = gen_keys(),
-    config = true,
+    config = function()
+        local ui = require("harpoon.ui")
+        local mark = require("harpoon.mark")
+        local wk = require("which-key")
+        local nav_file_maps = {}
+        for i = 1, 9 do
+            nav_file_maps[tostring(i)] = { function() ui.nav_file(i) end, "Jump to file " .. i }
+        end
+        wk.register({
+            ["<leader>h"] = vim.tbl_extend("keep", {
+                name = "Harpoon",
+                n = { function() ui.nav_next() end, "Next" },
+                p = { function() ui.nav_prev() end, "Previous" },
+                a = { function() mark.add_file() end, "Add mark" },
+                m = { function() ui.toggle_quick_menu() end, "Show Menu" },
+            }, nav_file_maps)
+        })
+    end
 }

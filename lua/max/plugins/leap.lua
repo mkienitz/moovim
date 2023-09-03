@@ -1,11 +1,15 @@
 return {
-	"ggandor/leap.nvim",
-	keys = {
-		{ "s", "<Plug>(leap-forward-to)", desc = "Leap forward" },
-		{ "S", "<Plug>(leap-backward-to)", desc = "Leap backward" },
-		{ "gs", "<Plug>(leap-cross-windows)", desc = "Leap across windows" },
-	},
-	opts = {
-		case_sensitive = true,
-	},
+    "ggandor/leap.nvim",
+    opts = {
+        case_sensitive = true,
+    },
+    config = function(_, opts)
+        require("leap").setup(opts)
+        local wk = require("which-key")
+        wk.register({
+            s = { "<Plug>(leap-forward-to)", "Leap forward" },
+            S = { "<Plug>(leap-backward-to)", "Leap backward" },
+            gs = { "<Plug>(leap-cross-windows)", "Leap across windows" },
+        })
+    end
 }

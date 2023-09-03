@@ -1,6 +1,12 @@
 return {
     "szw/vim-maximizer",
-    keys = {
-        { "<leader>wm", "<cmd>MaximizerToggle<CR>", { desc = "Maximize/minimize split" } },
-    },
+    config = function()
+        local wk = require("which-key")
+        wk.register({
+            ["<leader>w"] = {
+                name = "Window",
+                m = { "<cmd>MaximizerToggle<CR>", "Toggle maximize split" }
+            }
+        })
+    end
 }
