@@ -28,13 +28,14 @@ return {
     wk.register({
       ["<leader>f"] = {
         name = "Find",
-        f = { function() tsb.find_files() end, "Local files", },
-        g = { function() tsb.git_files() end, "Git files", },
-        r = { function() tsb.oldfiles() end, "Old files", },
-        c = { function() tsb.grep_string() end, "String under cursor", },
-        s = { function() tsb.live_grep() end, "String in current working directory", },
-        t = { function() tsb.treesitter() end, "Treesitter symbols", },
+        f = { tsb.find_files, "Local files" },
+        g = { tsb.git_files, "Git files" },
+        r = { tsb.oldfiles, "Old files" },
+        b = { tsb.buffers, "Buffers" },
+        c = { tsb.grep_string, "String under cursor" },
+        s = { tsb.live_grep, "String in current working directory" },
+        t = { tsb.treesitter, "Treesitter symbols" },
       },
     })
-  end
+  end,
 }
