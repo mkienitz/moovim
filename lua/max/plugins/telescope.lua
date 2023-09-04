@@ -1,41 +1,41 @@
 return {
-  "nvim-telescope/telescope.nvim",
-  dependencies = {
-    {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-    },
-  },
-  opts = function()
-    local actions = require("telescope.actions")
-    return {
-      defaults = {
-        mappings = {
-          i = {
-            ["<C-j>"] = actions.move_selection_next,
-            ["<C-k>"] = actions.move_selection_previous,
-            ["<C-h>"] = actions.which_key,
-          },
-        },
-      },
-    }
-  end,
-  config = function(_, opts)
-    require("telescope").setup(opts)
-    require("telescope").load_extension("session-lens")
-    local tsb = require("telescope.builtin")
-    local wk = require("which-key")
-    wk.register({
-      ["<leader>f"] = {
-        name = "Find",
-        f = { tsb.find_files, "Local files" },
-        g = { tsb.git_files, "Git files" },
-        r = { tsb.oldfiles, "Old files" },
-        b = { tsb.buffers, "Buffers" },
-        c = { tsb.grep_string, "String under cursor" },
-        s = { tsb.live_grep, "String in current working directory" },
-        t = { tsb.treesitter, "Treesitter symbols" },
-      },
-    })
-  end,
+	"nvim-telescope/telescope.nvim",
+	dependencies = {
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+		},
+	},
+	opts = function()
+		local actions = require("telescope.actions")
+		return {
+			defaults = {
+				mappings = {
+					i = {
+						["<C-j>"] = actions.move_selection_next,
+						["<C-k>"] = actions.move_selection_previous,
+						["<C-h>"] = actions.which_key,
+					},
+				},
+			},
+		}
+	end,
+	config = function(_, opts)
+		require("telescope").setup(opts)
+		require("telescope").load_extension("session-lens")
+		local tsb = require("telescope.builtin")
+		local wk = require("which-key")
+		wk.register({
+			["<leader>f"] = {
+				name = "Find",
+				f = { tsb.find_files, "Local files" },
+				g = { tsb.git_files, "Git files" },
+				r = { tsb.oldfiles, "Old files" },
+				b = { tsb.buffers, "Buffers" },
+				c = { tsb.grep_string, "String under cursor" },
+				s = { tsb.live_grep, "String in current working directory" },
+				t = { tsb.treesitter, "Treesitter symbols" },
+			},
+		})
+	end,
 }
