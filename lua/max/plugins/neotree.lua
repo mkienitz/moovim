@@ -3,29 +3,10 @@ return {
   branch = "v3.x",
   dependencies = {
     "theprimeagen/harpoon",
+    "s1n7ax/nvim-window-picker",
     { "nvim-lua/plenary.nvim" },
     { "nvim-tree/nvim-web-devicons" }, -- not strictly required, but recommended
     { "MunifTanjim/nui.nvim" },
-    {
-      -- only needed if you want to use the commands with "_with_window_picker" suffix
-      's1n7ax/nvim-window-picker',
-      config = function()
-        require("window-picker").setup({
-          autoselect_one = true,
-          include_current = false,
-          filter_rules = {
-            -- filter using buffer options
-            bo = {
-              -- if the file type is one of following, the window will be ignored
-              filetype = { "neo-tree", "neo-tree-popup", "notify" },
-              -- if the buffer type is one of following, the window will be ignored
-              buftype = { "terminal", "quickfix", "prompt" },
-            },
-          },
-          other_win_hl_color = '#e35e4f',
-        })
-      end,
-    },
   },
   opts = {
     close_if_last_window = true,    -- Close Neo-tree if it is the last window left in the tab
@@ -97,7 +78,7 @@ return {
           else
             return {}
           end
-        end
+        end,
       },
       renderers = {
         file = {
@@ -106,8 +87,8 @@ return {
           { "harpoon_index" }, -- This is what actually adds the component in where you want it
           { "diagnostics" },
           { "git_status",   highlight = "NeoTreeDimText" },
-        }
-      }
+        },
+      },
     },
   },
   config = function(_, opts)
@@ -116,7 +97,7 @@ return {
     wk.register({
       ["<leader>"] = {
         e = { "<cmd>Neotree action=show toggle<CR>", "Toggle explorer" },
-      }
+      },
     })
   end,
 }
