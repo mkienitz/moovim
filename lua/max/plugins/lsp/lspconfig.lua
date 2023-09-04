@@ -11,18 +11,17 @@ return {
     local wk = require("which-key")
     local on_attach = function(_, bufnr)
       wk.register({
+        K = { vim.lsp.buf.hover, "Hover documentation", buffer = bufnr },
+        g = {
+          d = { vim.lsp.buf.definition, "Definition", buffer = bufnr },
+          D = { vim.lsp.buf.declaration, "Declaration", buffer = bufnr },
+          i = { vim.lsp.buf.implementation, "Implementation", buffer = bufnr },
+          o = { vim.lsp.buf.type_definition, "Type definition", buffer = bufnr },
+          r = { vim.lsp.buf.references, "References", buffer = bufnr },
+        },
+        ["[d"] = { vim.diagnostic.goto_next, "Jump to next diagnostic", buffer = bufnr },
+        ["]d"] = { vim.diagnostic.goto_prev, "Jump to previous diagnostic", buffer = bufnr },
         ["<leader>"] = {
-          K = { vim.lsp.buf.hover, "Hover documentation", buffer = bufnr },
-          g = {
-            name = "Go to",
-            d = { vim.lsp.buf.definition, "Definition", buffer = bufnr },
-            D = { vim.lsp.buf.declaration, "Declaration", buffer = bufnr },
-            i = { vim.lsp.buf.implementation, "Implementation", buffer = bufnr },
-            o = { vim.lsp.buf.type_definition, "Type definition", buffer = bufnr },
-            r = { vim.lsp.buf.references, "References", buffer = bufnr },
-          },
-          ["["] = { vim.diagnostic.goto_next, "Jump to next diagnostic", buffer = bufnr },
-          ["]"] = { vim.diagnostic.goto_prev, "Jump to previous diagnostic", buffer = bufnr },
           ca = { vim.lsp.buf.code_action, "Show code actions", buffer = bufnr },
           rn = { vim.lsp.buf.rename, "Rename symbol", buffer = bufnr },
           vws = { vim.lsp.buf.workspace_symbol, "Find symbol in workspace", buffer = bufnr },
@@ -37,7 +36,7 @@ return {
     local lspconfig = require("lspconfig")
     local handlers = {
       -- Default handler
-      function(server_name)       -- default handler (optional)
+      function(server_name) -- default handler (optional)
         lspconfig[server_name].setup({
           capabilities = capabilities,
           on_attach = on_attach,
