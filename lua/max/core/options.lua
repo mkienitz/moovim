@@ -1,31 +1,31 @@
-vim.opt.compatible = false
-vim.opt.ignorecase = true
-vim.opt.termguicolors = true
-vim.opt.smarttab = true
-vim.opt.encoding = "utf-8"
-vim.opt.clipboard = "unnamedplus"
-vim.opt.title = true
-vim.opt.updatetime = 50
+vim.o.compatible = false
+vim.o.ignorecase = true
+vim.o.termguicolors = true
+vim.o.smarttab = true
+vim.o.encoding = "utf-8"
+vim.o.clipboard = "unnamedplus"
+vim.o.title = true
+vim.o.updatetime = 50
 
-vim.opt.incsearch = true
-vim.opt.hlsearch = false
+vim.o.incsearch = true
+vim.o.hlsearch = false
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.cursorline = true
-vim.opt.guicursor = ""
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.cursorline = true
+vim.o.guicursor = ""
+vim.o.scrolloff = 8
+vim.o.signcolumn = "yes"
 
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undofile = true
 
-vim.opt.autoindent = true
-vim.opt.wrap = false
-vim.opt.smartindent = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
+vim.o.autoindent = true
+vim.o.wrap = false
+vim.o.smartindent = true
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
 vim.cmd("syntax off")
 
 vim.o.timeout = true
