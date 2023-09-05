@@ -15,7 +15,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in {
         devShells.default = pkgs.mkShell {
-          packages = with pkgs; [stylua luaPackages.luacheck];
+          packages = with pkgs; [alejandra deadnix stylua luaPackages.luacheck];
         };
       }
     );
