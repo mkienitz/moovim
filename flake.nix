@@ -16,6 +16,9 @@
       in {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [alejandra deadnix stylua luaPackages.luacheck];
+          shellHook = ''
+            git config --local core.hooksPath .hooks
+          '';
         };
       }
     );
