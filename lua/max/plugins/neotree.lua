@@ -5,12 +5,12 @@ return {
 		"theprimeagen/harpoon",
 		"s1n7ax/nvim-window-picker",
 		{ "nvim-lua/plenary.nvim" },
-		{ "nvim-tree/nvim-web-devicons" }, -- not strictly required, but recommended
+		{ "nvim-tree/nvim-web-devicons" },
 		{ "MunifTanjim/nui.nvim" },
 	},
 	opts = {
-		close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
-		popup_border_style = "rounded", -- "double", "none", "rounded", "shadow", "single" or "solid"
+		close_if_last_window = true,
+		popup_border_style = "rounded",
 		default_component_configs = {
 			container = {
 				enable_character_fade = false,
@@ -31,11 +31,10 @@ return {
 				},
 			},
 		},
-		window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
-			-- possible options. These can also be functions that return these options.
-			position = "left", -- left, right, top, bottom, float, current
-			width = 34, -- applies to left and right positions
-			auto_expand_width = false, -- expand the window when file exceeds the window width. does not work with position = "float"
+		window = {
+			position = "left",
+			width = 34,
+			auto_expand_width = false,
 		},
 		filesystem = {
 			filtered_items = {
@@ -44,27 +43,27 @@ return {
 				hide_by_name = {
 					".git",
 				},
-				hide_by_pattern = { -- uses glob style patterns
+				hide_by_pattern = {
 					--"*.meta",
 					--"*/src/*/tsconfig.json"
 				},
-				always_show = { -- remains visible even if other settings would normally hide it
+				always_show = {
 					--".gitignored",
 				},
-				never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+				never_show = {
 					".DS_Store",
 				},
-				never_show_by_pattern = { -- uses glob style patterns
+				never_show_by_pattern = {
 					--".null-ls_*",
 				},
 			},
-			group_empty_dirs = true, -- when true, empty folders will be grouped together
+			group_empty_dirs = true,
 			follow_current_file = {
-				enabled = true, -- This will find and focus the file in the active buffer every time
-				leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+				enabled = true,
+				leave_dirs_open = false,
 			},
-			hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
-			use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+			hijack_netrw_behavior = "open_default",
+			use_libuv_file_watcher = false,
 			components = {
 				harpoon_index = function(config, node, _)
 					local mark = require("harpoon.mark")
@@ -84,7 +83,7 @@ return {
 				file = {
 					{ "icon" },
 					{ "name", use_git_status_colors = true },
-					{ "harpoon_index" }, -- This is what actually adds the component in where you want it
+					{ "harpoon_index" },
 					{ "diagnostics" },
 					{ "git_status", highlight = "NeoTreeDimText" },
 				},
