@@ -15,7 +15,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in {
         devShells.default = pkgs.mkShell {
-          packages = with pkgs; [alejandra deadnix stylua luaPackages.luacheck];
+          packages = with pkgs; [alejandra deadnix lua-language-server lua stylua luaPackages.luacheck];
           shellHook = ''
             git config --local core.hooksPath .hooks
           '';
