@@ -8,6 +8,7 @@ return {
 		-- Prepare keybinds on attach
 		local wk = require("which-key")
 		local on_attach = function(_, bufnr)
+			require("tailwindcss-colors").buf_attach(bufnr)
 			wk.register({
 				K = { vim.lsp.buf.hover, "Hover documentation", buffer = bufnr },
 				g = {
@@ -56,12 +57,26 @@ return {
 			on_attach = on_attach,
 		})
 
-		local rust_tools = require("rust-tools");
+		local rust_tools = require("rust-tools")
 		rust_tools.setup({
 			server = {
 				capabilities = capabilities,
 				on_attach = on_attach,
-			}
+				settings = {
+					["rust-analyzer"] = {
+						checkOnSave = {
+							command = "clippy",
+						},
+					},
+				},
+			},
 		})
+
+		require("lspconfig").svelte.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		require("lspconfig").tailwindcss.setup({})
 	end,
 }
