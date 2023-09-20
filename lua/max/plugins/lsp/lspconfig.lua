@@ -21,7 +21,7 @@ return {
 				["[d"] = { vim.diagnostic.goto_next, "Jump to next diagnostic", buffer = bufnr },
 				["]d"] = { vim.diagnostic.goto_prev, "Jump to previous diagnostic", buffer = bufnr },
 				["<leader>"] = {
-					a = { vim.lsp.buf.code_action, "Show code actions", buffer = bufnr },
+					c = { vim.lsp.buf.code_action, "Show code actions", buffer = bufnr },
 					rn = { vim.lsp.buf.rename, "Rename symbol", buffer = bufnr },
 					vws = { vim.lsp.buf.workspace_symbol, "Find symbol in workspace", buffer = bufnr },
 					d = { vim.diagnostic.open_float, "Show diagnostics for line", buffer = bufnr },
@@ -73,6 +73,11 @@ return {
 		})
 
 		require("lspconfig").svelte.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig.nil_ls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
