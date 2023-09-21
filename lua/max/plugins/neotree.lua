@@ -35,6 +35,32 @@ return {
 			position = "left",
 			width = 34,
 			auto_expand_width = false,
+			mappings = {
+				a = {
+					"add",
+					config = {
+						show_path = "relative",
+					},
+				},
+				A = {
+					"add_directory",
+					config = {
+						show_path = "relative",
+					},
+				},
+				c = {
+					"copy",
+					config = {
+						show_path = "relative",
+					},
+				},
+				m = {
+					"move",
+					config = {
+						show_path = "relative",
+					},
+				},
+			},
 		},
 		filesystem = {
 			filtered_items = {
