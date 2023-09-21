@@ -20,7 +20,7 @@ return {
 		-- Set menu
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "  New File", "<cmd>ene<CR>"),
-			dashboard.button("SPC ee", "  Toggle File Explorer"),
+			dashboard.button("SPC e", "  Toggle File Explorer"),
 			dashboard.button("SPC ff", "󰱼  Local Files"),
 			dashboard.button("SPC fg", "  Git Files"),
 			dashboard.button("SPC fr", "󱋢  Recent Files"),
