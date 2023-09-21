@@ -35,25 +35,25 @@ return {
 					["]]"] = { query = "@class.outer", desc = "Next class start" },
 				},
 				goto_next_end = {
-					["]M"] = { query = "@function.outer", desc = "Next function end", },
-					["]["] = { query = "@class.outer", desc = "Next class ends" }
+					["]M"] = { query = "@function.outer", desc = "Next function end" },
+					["]["] = { query = "@class.outer", desc = "Next class ends" },
 				},
 				goto_previous_start = {
 					["[m"] = { query = "@function.outer", desc = "Previous function start" },
-					["[["] = { query = "@class.outer", desc = "Previous class start" }
+					["[["] = { query = "@class.outer", desc = "Previous class start" },
 				},
 				goto_previous_end = {
 					["[M"] = { query = "@function.outer", desc = "Previous function end" },
-					["[]"] = { query = "@class.outer", desc = "Previous class end" }
+					["[]"] = { query = "@class.outer", desc = "Previous class end" },
 				},
 			},
 			swap = {
 				enable = true,
 				swap_next = {
-					["<leader>a"] = { query = "@parameter.inner", desc = "Swap parameter with next" }
+					["<leader>a"] = { query = "@parameter.inner", desc = "Swap parameter with next" },
 				},
 				swap_previous = {
-					["<leader>A"] = { query = "@parameter.inner", desc = "Swap parameter with next" }
+					["<leader>A"] = { query = "@parameter.inner", desc = "Swap parameter with next" },
 				},
 			},
 		},
