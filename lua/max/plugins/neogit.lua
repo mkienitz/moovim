@@ -6,6 +6,7 @@ return {
 		"sindrets/diffview.nvim",
 		"ibhagwan/fzf-lua",
 	},
+	enabled = false,
 	keys = {
 		{ "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit" },
 	},
