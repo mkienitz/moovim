@@ -1,4 +1,3 @@
-vim.o.compatible = false
 vim.o.ignorecase = true
 vim.o.termguicolors = true
 vim.o.smarttab = true
@@ -29,7 +28,3 @@ vim.o.softtabstop = 4
 
 vim.o.timeout = true
 vim.o.timeoutlen = 300
-
--- nvim-tree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
