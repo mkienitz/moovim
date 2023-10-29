@@ -1,33 +1,38 @@
 return {
 	"tamton-aquib/duck.nvim",
-	keys = {
-		{
-			"<leader>dd",
-			function()
-				require("duck").hatch("🦆", 7.5)
-			end,
-			desc = "Hatch duck",
-		},
-		{
-			"<leader>dc",
-			function()
-				require("duck").hatch("🐄", 5)
-			end,
-			desc = "Spawn cow",
-		},
-		{
-			"<leader>ds",
-			function()
-				require("duck").hatch("🐑", 6)
-			end,
-			desc = "Spawn sheep",
-		},
-		{
-			"<leader>dk",
-			function()
-				require("duck").cook()
-			end,
-			desc = "Cook random",
-		},
-	},
+	opts = {},
+	config = function(_, opts)
+		local duck = require("duck")
+		duck.setup(opts)
+		local wk = require("which-key")
+		wk.register({
+			["<leader>x"] = {
+				name = "Duck",
+				d = {
+					function()
+						duck.hatch("🦆", 7.5)
+					end,
+					"Hatch duck",
+				},
+				c = {
+					function()
+						duck.hatch("🐄", 5)
+					end,
+					"Spawn cow",
+				},
+				s = {
+					function()
+						duck.hatch("🐑", 6)
+					end,
+					"Spawn sheep",
+				},
+				k = {
+					function()
+						duck.cook()
+					end,
+					"Cook random",
+				},
+			},
+		})
+	end,
 }
