@@ -2,13 +2,22 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		{ "hrsh7th/cmp-nvim-lsp", "mfussenegger/nvim-dap", "simrat39/rust-tools.nvim" },
+		{
+			"hrsh7th/cmp-nvim-lsp",
+			"mfussenegger/nvim-dap",
+			"simrat39/rust-tools.nvim",
+			"themaxmarchuk/tailwindcss-colors.nvim",
+		},
 	},
 	config = function()
 		-- Prepare keybinds on attach
 		local wk = require("which-key")
-		local on_attach = function(_, bufnr)
-			require("tailwindcss-colors").buf_attach(bufnr)
+		local on_attach = function(client, bufnr)
+			print("Attaching LSP: ", vim.inspect(client.name))
+			if client.name == "tailwindcss" then
+				require("tailwindcss-colors").buf_attach(bufnr)
+			end
+
 			wk.register({
 				K = { vim.lsp.buf.hover, "Hover documentation", buffer = bufnr },
 				g = {
@@ -87,6 +96,9 @@ return {
 			on_attach = on_attach,
 		})
 
-		require("lspconfig").tailwindcss.setup({})
+		require("lspconfig").tailwindcss.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 	end,
 }
