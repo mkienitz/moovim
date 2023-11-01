@@ -25,8 +25,6 @@ return {
 			dashboard.button("SPC fg", "  Git Files"),
 			dashboard.button("SPC fr", "󱋢  Recent Files"),
 			dashboard.button("SPC fs", "  Find String"),
-			dashboard.button("SPC sr", "󰁯  Restore Current Session"),
-			dashboard.button("SPC sp", "󰁯  Pick Other Session"),
 			dashboard.button("q", "  Quit", "<cmd>qa<CR>"),
 		}
 		alpha.setup(dashboard.opts)
